@@ -88,51 +88,55 @@ export default function Root() {
   };
 
   return (
-    <div className="container mt">
-      <h2>Investment Options</h2>
-      <div className="investment-list">
-        <ul className="investment-container">
-          {investments.map((investment) => (
-            <li
-              key={investment.id}
-              className="investment-card"
-              onClick={() => handleCardClick(investment)}
-            >
-              <img
-                src={investment.image}
-                alt={investment.name}
-                className="investment-card-image"
-              />
-              <div className="investment-card-content">
-                <h3>{investment.name}</h3>
-                <p>Return: {investment.return}</p>
-                <p>Risk: {investment.risk}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-      {selectedInvestment && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={handleCloseModal}>
-              &times;
-            </span>
-            <h3>{selectedInvestment.name}</h3>
-            <p>Return: {selectedInvestment.return}</p>
-            <p>Risk: {selectedInvestment.risk}</p>
-            <p>{selectedInvestment.description}</p>
-          </div>
-        </div>
-      )}
+    <>
+      <h1>Welcome to iCapital Dashboard</h1>
 
-      <div className="fake-pagination ">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
+      <div className="container">
+        <h2>Investment Options</h2>
+        <div className="investment-list">
+          <ul className="investment-container">
+            {investments.map((investment) => (
+              <li
+                key={investment.id}
+                className="investment-card"
+                onClick={() => handleCardClick(investment)}
+              >
+                <img
+                  src={investment.image}
+                  alt={investment.name}
+                  className="investment-card-image"
+                />
+                <div className="investment-card-content">
+                  <h3>{investment.name}</h3>
+                  <p>Return: {investment.return}</p>
+                  <p>Risk: {investment.risk}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {selectedInvestment && (
+          <div className="modal" role="dialog">
+            <div className="modal-content">
+              <span className="close" onClick={handleCloseModal}>
+                &times;
+              </span>
+              <h3>{selectedInvestment.name}</h3>
+              <p>Return: {selectedInvestment.return}</p>
+              <p>Risk: {selectedInvestment.risk}</p>
+              <p>{selectedInvestment.description}</p>
+            </div>
+          </div>
+        )}
+
+        <div className="fake-pagination ">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
