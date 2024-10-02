@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./global.css";
 
 const investments = [
@@ -89,8 +89,15 @@ export default function Root() {
 
   return (
     <>
-      <h1>Welcome to iCapital Dashboard</h1>
-
+      <div className="app-container">
+        <img
+          src="https://mms.businesswire.com/media/20210303005218/en/833176/5/iCapital_Network_Logo_2018.jpg?download=1"
+          alt="iCapital"
+          width={120}
+        />
+        <h1>iCapital Dashboard</h1>
+        <div />
+      </div>
       <div className="container">
         <h2>Investment Options</h2>
         <div className="investment-list">
